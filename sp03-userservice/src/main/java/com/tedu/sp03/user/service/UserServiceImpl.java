@@ -3,6 +3,7 @@ package com.tedu.sp03.user.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -14,6 +15,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Service
+@RefreshScope
 public class UserServiceImpl implements UserService{
 
 	@Value("${sp.user-service.users}")
@@ -33,7 +35,7 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public void addScore(Integer id, Integer score) {
-		// TODO Auto-generated method stub
+		log.info("user "+id+" - 增加积分 "+score);
 		
 	}
 
